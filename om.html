@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown to 28 June</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      background: linear-gradient(-45deg, #ffe6f0, #ffc0cb, #ffb6c1, #ffe6f0);
+      background-size: 400% 400%;
+      animation: flashback 12s ease infinite;
+      font-family: 'Pacifico', cursive;
+      color: #ff1493;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    @keyframes flashback {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+    #timer {
+      font-size: 2em;
+      background: #fff0f5;
+      padding: 20px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.8;
+      animation: float 8s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(50vh) translateX(15px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(-10vh) translateX(30px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    @keyframes flyIn {
+      0% { transform: translateX(-100vw) rotate(-360deg); opacity: 0; }
+      50% { transform: translateX(30vw) rotate(-10deg); opacity: 1; }
+      100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+    }
+    #musicControls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    #musicControls button {
+      background: #ff69b4;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      margin: 0 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Pacifico', cursive;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" autoplay loop>
+    <source src="little-little-baby.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="musicControls">
+    <button onclick="document.getElementById('bgMusic').play()">Play 🎵</button>
+    <button onclick="document.getElementById('bgMusic').pause()">Pause ⏸️</button>
+  </div>
+
+  <!-- Existing content starts here -->
+  <div id="welcomeScreen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ffe6f0; display: flex; justify-content: center; align-items: center; flex-direction: column; z-index: 999; text-align: center;">
+    <h1 style="font-size: 3em; margin-bottom: 20px; color: #ff1493;">Happy Anniversary Madam Ji 💖</h1>
+    <div onclick="startAnniversary()" style="cursor: pointer; font-size: 4em;">🎂</div>
+    <p style="margin-top: 10px; font-size: 1.2em; color: #d1007f;">Cut the cake to go next 🎂</p>
+  </div>
+
+  <!-- Remaining content unchanged -->
+</body>
+</html>
